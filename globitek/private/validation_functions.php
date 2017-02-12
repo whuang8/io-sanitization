@@ -26,4 +26,9 @@
     return strpos($value, '@') !== false;
   }
 
+  // has_valid_phone_number_format('(972)321-4823')
+  function has_valid_phone_number_format($value) {
+    return preg_match('/^[0-9-+()\s]+$/', $value);
+  }
+
 ?>

@@ -46,7 +46,7 @@
     if (empty($errors)) {
       $created_at = date("Y-m-d H:i:s");
       $sql = "INSERT INTO users ";
-      $sql .= "(first_name, last_name, email, username,created_at) ";
+      $sql .= "(first_name, last_name, email, username, created_at) ";
       $sql .= "VALUES (";
       // Note that there is no SQL sanitization used here yet.
       // That will be a topic for later in the week.

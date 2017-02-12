@@ -10,13 +10,13 @@ The following **required** functionality is completed:
 
 2\. [x]  Required: Set Up the Starting Code
 
-3\. [ ]  Required: Review code for Staff CMS for Users
+3\. [x]  Required: Review code for Staff CMS for Users
 
-4\. [ ]  Required: Complete Staff CMS for Salespeople
-  * [ ]  Required: index.php
-  * [ ]  Required: show.php
-  * [ ]  Required: new.php
-  * [ ]  Required: edit.php
+4\. [x]  Required: Complete Staff CMS for Salespeople
+  * [x]  Required: index.php
+  * [x]  Required: show.php
+  * [x]  Required: new.php
+  * [x]  Required: edit.php
 
 5\. [ ]  Required: Complete Staff CMS for States
   * [ ]  Required: index.php
