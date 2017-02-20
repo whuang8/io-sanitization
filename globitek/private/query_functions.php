@@ -73,8 +73,8 @@
     $sql = "INSERT INTO states ";
     $sql .= "(name, code) ";
     $sql .= "VALUES (";
-    $sql .= "'" . $state['name'] . "',";
-    $sql .= "'" . $state['code'] . "'";
+    $sql .= "'" . db_escape($db, $state['name']) . "',";
+    $sql .= "'" . db_escape($db, $state['code']) . "'";
     $sql .= ");";
     // For INSERT statments, $result is just true/false
     $result = db_query($db, $sql);
@@ -178,9 +178,9 @@
     $sql = "INSERT INTO territories ";
     $sql .= "(name, position, state_id) ";
     $sql .= "VALUES (";
-    $sql .= "'" . $territory['name'] . "', ";
-    $sql .= "'" . $territory['position'] . "', ";
-    $sql .= "'" . $territory['state_id'] . "'";
+    $sql .= "'" . db_escape($db, $territory['name']) . "', ";
+    $sql .= "'" . db_escape($db, $territory['position']) . "', ";
+    $sql .= "'" . db_escape($db, $territory['state_id']) . "'";
     $sql .= ");";
     // For INSERT statments, $result is just true/false
     $result = db_query($db, $sql);
@@ -274,12 +274,16 @@
 
     if (is_blank($salesperson['email'])) {
       $errors[] = "Email cannot be blank.";
+    } elseif (!has_length($salesperson['email'], array('max' => 255))) {
+      $errors[] = "Email must be less than 255 characters.";
     } elseif (!has_valid_email_format($salesperson['email'])) {
       $errors[] = "Email must be a valid format.";
     }
 
     if (is_blank($salesperson['phone'])) {
       $errors[] = "Phone number cannot be blank.";
+    } elseif (!has_length($salesperson['phone'], array('max' => 255))) {
+      $errors[] = "Phone number must be less than 255 characters.";
     } elseif (!has_valid_phone_number_format($salesperson['phone'])) {
       $errors[] = "Phone number must be a valid format";
     }
@@ -300,10 +304,10 @@
     $sql = "INSERT INTO salespeople ";
     $sql .= "(first_name, last_name, email, phone) ";
     $sql .= "VALUES (";
-    $sql .= "'" . $salesperson['first_name'] . "',";
-    $sql .= "'" . $salesperson['last_name'] . "',";
-    $sql .= "'" . $salesperson['email'] . "',";
-    $sql .= "'" . $salesperson['phone'] . "'";
+    $sql .= "'" . db_escape($db, $salesperson['first_name']) . "',";
+    $sql .= "'" . db_escape($db, $salesperson['last_name']) . "',";
+    $sql .= "'" . db_escape($db, $salesperson['email']) . "',";
+    $sql .= "'" . db_escape($db, $salesperson['phone']) . "'";
     $sql .= ");";
     // For INSERT statments, $result is just true/false
     $result = db_query($db, $sql);
@@ -398,12 +402,16 @@
 
     if (is_blank($user['email'])) {
       $errors[] = "Email cannot be blank.";
+    } elseif (!has_length($user['email'], array('max' => 255))) {
+      $errors[] = "Email must be less than 255 characters";
     } elseif (!has_valid_email_format($user['email'])) {
       $errors[] = "Email must be a valid format.";
     }
 
     if (is_blank($user['username'])) {
       $errors[] = "Username cannot be blank.";
+    } elseif (!has_valid_username($user['username'])) {
+      $errors[] = "Username must contain only A-Z, a-z, 0-9, and _.";
     } elseif (!has_length($user['username'], array('max' => 255))) {
       $errors[] = "Username must be less than 255 characters.";
     }
@@ -424,11 +432,11 @@
     $sql = "INSERT INTO users ";
     $sql .= "(first_name, last_name, email, username, created_at) ";
     $sql .= "VALUES (";
-    $sql .= "'" . $user['first_name'] . "',";
-    $sql .= "'" . $user['last_name'] . "',";
-    $sql .= "'" . $user['email'] . "',";
-    $sql .= "'" . $user['username'] . "',";
-    $sql .= "'" . $created_at . "'";
+    $sql .= "'" . db_escape($db, $user['first_name']) . "',";
+    $sql .= "'" . db_escape($db, $user['last_name']) . "',";
+    $sql .= "'" . db_escape($db, $user['email']) . "',";
+    $sql .= "'" . db_escape($db, $user['username']) . "',";
+    $sql .= "'" . db_escape($db, $created_at) . "'";
     $sql .= ");";
     // For INSERT statments, $result is just true/false
     $result = db_query($db, $sql);

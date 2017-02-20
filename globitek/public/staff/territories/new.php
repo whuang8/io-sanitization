@@ -7,8 +7,8 @@ $errors = array();
 if (is_post_request()) {
   // Confirm that values are present before accessing them.
   if(isset($_POST['name'])) { $territory['name'] = $_POST['name']; }
-  if(isset($_POST['position'])) { $territory['position'] = $_POST['position']; }
-  if(isset($_POST['state_id'])) { $territory['state_id'] = $_POST['state_id']; }
+  if(isset($_POST['position'])) { $territory['position'] = h($_POST['position']); }
+  if(isset($_POST['state_id'])) { $territory['state_id'] = h($_POST['state_id']); }
 
   $result = insert_territory($territory);
   if($result === true) {
@@ -30,9 +30,9 @@ if (is_post_request()) {
 
   <form action="./new.php" method="post">
     Territory Name:<br />
-    <input type="text" name="name" value="<?php echo $territory['name']; ?>" /><br />
+    <input type="text" name="name" value="<?php echo h($territory['name']); ?>" /><br />
     Territory Position:<br />
-    <input type="text" name="position" value="<?php echo $territory['position']; ?>" /><br />
+    <input type="text" name="position" value="<?php echo h($territory['position']); ?>" /><br />
     <input type='hidden' name='state_id' value='<?php echo $_GET['state_id'];?>'/>
     <input type="submit" name="submit" value="Create"  />
   </form>

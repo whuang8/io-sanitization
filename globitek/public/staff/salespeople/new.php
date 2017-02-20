@@ -13,10 +13,10 @@ $salesperson = array(
 if(is_post_request()) {
 
   // Confirm that values are present before accessing them.
-  if(isset($_POST['first_name'])) { $salesperson['first_name'] = $_POST['first_name']; }
-  if(isset($_POST['last_name'])) { $salesperson['last_name'] = $_POST['last_name']; }
-  if(isset($_POST['phone'])) { $salesperson['phone'] = $_POST['phone']; }
-  if(isset($_POST['email'])) { $salesperson['email'] = $_POST['email']; }
+  if(isset($_POST['first_name'])) { $salesperson['first_name'] = h($_POST['first_name']); }
+  if(isset($_POST['last_name'])) { $salesperson['last_name'] = h($_POST['last_name']); }
+  if(isset($_POST['phone'])) { $salesperson['phone'] = h($_POST['phone']); }
+  if(isset($_POST['email'])) { $salesperson['email'] = h($_POST['email']); }
 
   $result = insert_salesperson($salesperson);
   if($result === true) {
@@ -40,13 +40,13 @@ if(is_post_request()) {
 
   <form action="./new.php" method="post">
     First name:<br />
-    <input type="text" name="first_name" value="<?php echo $salesperson['first_name']; ?>" /><br />
+    <input type="text" name="first_name" value="<?php echo h($salesperson['first_name']); ?>" /><br />
     Last name:<br />
-    <input type="text" name="last_name" value="<?php echo $salesperson['last_name']; ?>" /><br />
+    <input type="text" name="last_name" value="<?php echo h($salesperson['last_name']); ?>" /><br />
     Phone number:<br />
-    <input type="text" name="phone" value="<?php echo $salesperson['phone']; ?>" /><br />
+    <input type="text" name="phone" value="<?php echo h($salesperson['phone']); ?>" /><br />
     Email:<br />
-    <input type="text" name="email" value="<?php echo $salesperson['email']; ?>" /><br />
+    <input type="text" name="email" value="<?php echo h($salesperson['email']); ?>" /><br />
     <br />
     <input type="submit" name="submit" value="Create"  />
   </form>

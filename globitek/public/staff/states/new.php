@@ -6,8 +6,8 @@ $errors = array();
 
 if (is_post_request()) {
   // Confirm that values are present before accessing them.
-  if(isset($_POST['name'])) { $state['name'] = $_POST['name']; }
-  if(isset($_POST['code'])) { $state['code'] = $_POST['code']; }
+  if(isset($_POST['name'])) { $state['name'] = h($_POST['name']); }
+  if(isset($_POST['code'])) { $state['code'] = h($_POST['code']); }
 
   $result = insert_state($state);
   if($result === true) {
@@ -29,9 +29,9 @@ if (is_post_request()) {
 
   <form action="./new.php" method="post">
     State Name:<br />
-    <input type="text" name="name" value="<?php echo $state['name']; ?>" /><br />
+    <input type="text" name="name" value="<?php echo h($state['name']); ?>" /><br />
     State Code:<br />
-    <input type="text" name="code" value="<?php echo $state['code']; ?>" /><br />
+    <input type="text" name="code" value="<?php echo h($state['code']); ?>" /><br />
     <input type="submit" name="submit" value="Create"  />
   </form>
 </div>

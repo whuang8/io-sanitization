@@ -19,11 +19,14 @@
     }
   }
 
+  // has_valid_username('username')
+  function has_valid_username($value) {
+    return preg_match('/^[A-Za-z0-9_]+$/', $value);
+  }
+
   // has_valid_email_format('test@test.com')
   function has_valid_email_format($value) {
-    // Function can be improved later to check for
-    // more than just '@'.
-    return strpos($value, '@') !== false;
+    return preg_match('/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,})$/', $value);
   }
 
   // has_valid_phone_number_format('(972)321-4823')
