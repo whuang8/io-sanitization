@@ -53,8 +53,8 @@
 
     if (is_blank($state['code'])) {
       $errors[] = "State code cannot be blank.";
-    } elseif (!has_length($state['code'], array('exact' => 2))) {
-      $errors[] = "State code length must be exactly 2";
+    } elseif (!has_valid_state_code($state['code'])) {
+      $errors[] = "State code length must be exactly 2 and comprised of letters";
     }
 
     return $errors;
@@ -160,6 +160,8 @@
       $errors[] = "Territory position cannot be blank.";
     } elseif (!has_length($territory['position'], array('min' => 1, 'max' => 255))) {
       $errors[] = "Territory position must be between 1 and 255 characters";
+    } elseif (!has_valid_territory_position($territory['position'])) {
+      $errors[] = "Territory position must be numeric";
     }
 
     return $errors;
@@ -285,7 +287,7 @@
     } elseif (!has_length($salesperson['phone'], array('max' => 255))) {
       $errors[] = "Phone number must be less than 255 characters.";
     } elseif (!has_valid_phone_number_format($salesperson['phone'])) {
-      $errors[] = "Phone number must be a valid format";
+      $errors[] = "Phone number must be between 4 and 20 numbers and only contain 0-9, spaces, and ()-";
     }
 
     return $errors;
