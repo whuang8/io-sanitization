@@ -32,7 +32,7 @@ if (is_post_request()) {
     <input type="text" name="name" value="<?php echo $state['name']; ?>" /><br />
     State Code:<br />
     <input type="text" name="code" value="<?php echo $state['code']; ?>" /><br />
-    <input type="submit" name="submit" value="Update"  />
+    <input type="submit" name="submit" value="Create"  />
   </form>
 </div>
 
