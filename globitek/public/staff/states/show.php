@@ -35,12 +35,12 @@ $state = db_fetch_assoc($state_result);
     echo "</table>";
 ?>
     <br />
-    <a href="./edit.php?id=<?php echo h($state['id']); ?>">Edit</a><br />
+    <a href="./edit.php?id=<?php echo h(u($state['id'])); ?>">Edit</a><br />
     <hr />
 
     <h2>Territories</h2>
     <br />
-    <a href="../territories/new.php?state_id=<?php echo h($state['id']); ?>">Add a Territory</a><br />
+    <a href="../territories/new.php?state_id=<?php echo h(u($state['id'])); ?>">Add a Territory</a><br />
 
 <?php
     $territory_result = find_territories_for_state_id(h($state['id']));
@@ -48,7 +48,7 @@ $state = db_fetch_assoc($state_result);
     echo "<ul id=\"territories\">";
     while($territory = db_fetch_assoc($territory_result)) {
       echo "<li>";
-      echo "<a href=\"../territories/show.php?id=" . h($territory['id']) . "\">";
+      echo "<a href=\"../territories/show.php?id=" . h(u($territory['id'])) . "\">";
       echo h($territory['name']);
       echo "</a>";
       echo "</li>";

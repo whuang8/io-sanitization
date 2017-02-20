@@ -29,7 +29,7 @@ if (is_post_request()) {
 <?php include(SHARED_PATH . '/header.php'); ?>
 
 <div id="main-content">
-  <a href="#add_a_url">Back to State Details</a><br />
+  <a href="./show.php?id=<?php echo u($territory['id']); ?>">Back to Territory Details</a><br />
 
   <h1>Edit Territory: <?php echo h($territory['name']); ?></h1>
   <?php echo display_errors($errors); ?>

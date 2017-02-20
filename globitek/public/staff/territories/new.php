@@ -23,7 +23,7 @@ if (is_post_request()) {
 <?php include(SHARED_PATH . '/header.php'); ?>
 
 <div id="main-content">
-  <a href="../states/show.php?id=<?php echo $_GET['state_id']; ?>">Back to State Details</a><br />
+  <a href="../states/show.php?id=<?php echo u($_GET['state_id']); ?>">Back to State Details</a><br />
 
   <h1>New Territory</h1>
   <?php echo display_errors($errors); ?>

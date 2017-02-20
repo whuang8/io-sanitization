@@ -26,10 +26,10 @@
       echo "<td>" . h($state['name']) . "</td>";
       echo "<td>" . h($state['code']) . "</td>";
       echo "<td>";
-      echo "<a href=\"./show.php?id=" . h($state["id"]) . "\">Show</a>";
+      echo "<a href=\"./show.php?id=" . h(u($state["id"])) . "\">Show</a>";
       echo "</td>";
       echo "<td>";
-      echo "<a href=\"./edit.php?id=" . h($state["id"]) . "\">Edit</a>";
+      echo "<a href=\"./edit.php?id=" . h(u($state["id"])) . "\">Edit</a>";
       echo "</td>";
       echo "</tr>";
     } // end while $states

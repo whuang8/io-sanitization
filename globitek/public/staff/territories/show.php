@@ -15,7 +15,7 @@ $state_id = h($territory['state_id']);
 <?php include(SHARED_PATH . '/header.php'); ?>
 
 <div id="main-content">
-  <a href="../states/show.php?id=<?php echo h($territory['state_id']); ?>">Back to State Details</a>
+  <a href="../states/show.php?id=<?php echo h(u($territory['state_id'])); ?>">Back to State Details</a>
   <br />
 
   <h1>Territory: <?php echo h($territory['name']); ?></h1>
@@ -39,7 +39,7 @@ $state_id = h($territory['state_id']);
     db_free_result($territory_result);
   ?>
   <br />
-  <a href="./edit.php?id=<?php echo h($territory['id']); ?>">Edit</a><br />
+  <a href="./edit.php?id=<?php echo h(u($territory['id'])); ?>">Edit</a><br />
 
 </div>
 
